@@ -8,11 +8,19 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "eslint-plugin-markdownlint": "file:../eslint-plugin-markdownlint",
     "espree": "^9.0.0",
     "markdownlint": "^0.24.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "eslint-config-not-an-aardvark": "^2.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-plugin": "^3.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-self": "^1.2.1",
+    "prettier": "^2.4.1"
   },
   "peerDependencies": {
     "eslint": ">=7.5.0"

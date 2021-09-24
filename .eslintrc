@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "plugins": [
+    "node", "eslint-plugin", "prettier", "self"
+  ],
+  "extends": [
+    "not-an-aardvark/node",
+    "plugin:node/recommended",
+    "plugin:eslint-plugin/recommended",
+    "prettier"
+  ],
+  "overrides": [{
+    "extends": ["plugin:self/recommended"],
+    "files": ["*.md"],
+    "parser": "./parser.js"
+  }]
+}
