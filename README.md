@@ -2,8 +2,7 @@
 
 > Eslint plugin which runs [markdownlint](https://github.com/DavidAnson/markdownlint).
 
-[![npm version][npm-image]][npm-url]
-[![License][license-image]][license-url]
+[![npm version](https://badge.fury.io/js/eslint-plugin-markdownlint.svg)](https://badge.fury.io/js/eslint-plugin-markdownlint)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Install
 
