@@ -272,20 +272,6 @@ eslint-plugin-eslint-plugin@^3.6.1:
   dependencies:
     eslint-utils "^2.1.0"
 
-"eslint-plugin-markdownlint@file:.":
-  version "0.1.0"
-  dependencies:
-    eslint-plugin-markdownlint "file:."
-    espree "^9.0.0"
-    markdownlint "^0.24.0"
-
-"eslint-plugin-markdownlint@file:../eslint-plugin-markdownlint":
-  version "0.1.0"
-  dependencies:
-    eslint-plugin-markdownlint "file:../../.cache/yarn/v6/npm-eslint-plugin-markdownlint-0.1.0-73992d03-5ed5-4193-b77d-901a2eecd78f-1632509184713/node_modules/eslint-plugin-markdownlint"
-    espree "^9.0.0"
-    markdownlint "^0.24.0"
-
 eslint-plugin-node@^11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-11.1.0.tgz#c95544416ee4ada26740a30474eefc5402dc671d"

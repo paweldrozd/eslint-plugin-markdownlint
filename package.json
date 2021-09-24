@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-markdownlint",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Eslint plugin running markdownlint",
   "main": "index.js",
   "author": "Paweł BB Drozd <dev@pawelbbdrozd.com>",
@@ -24,7 +24,6 @@
   "bugs": "https://github.com/bodolsog/eslint-plugin-markdownlint/issues",
   "private": false,
   "dependencies": {
-    "eslint-plugin-markdownlint": "file:../eslint-plugin-markdownlint",
     "espree": "^9.0.0",
     "markdownlint": "^0.24.0"
   },
