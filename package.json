@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-markdownlint",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Eslint plugin running markdownlint",
   "main": "index.js",
   "author": "Paweł BB Drozd <dev@pawelbbdrozd.com>",
