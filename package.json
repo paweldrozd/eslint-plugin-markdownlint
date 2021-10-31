@@ -1,11 +1,10 @@
 {
   "name": "eslint-plugin-markdownlint",
   "version": "0.2.2",
-  "description": "Eslint plugin running markdownlint",
-  "main": "index.js",
+  "description": "Eslint plugin for markdownlint",
   "author": "Paweł BB Drozd <dev@pawelbbdrozd.com>",
   "license": "MIT",
-  "homepage": "https://github.com/bodolsog/eslint-plugin-markdownlint",
+  "homepage": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
   "keywords": [
     "eslint",
     "eslint-markdown",
@@ -19,9 +18,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bodolsog/eslint-plugin-markdownlint.git"
+    "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint.git"
   },
-  "bugs": "https://github.com/bodolsog/eslint-plugin-markdownlint/issues",
+  "bugs": {
+    "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "lib/**/*.js",
+    "parser.js"
+  ],
   "private": false,
   "dependencies": {
     "espree": "^9.0.0",
