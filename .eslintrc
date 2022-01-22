@@ -7,11 +7,20 @@
     "not-an-aardvark/node",
     "plugin:node/recommended",
     "plugin:eslint-plugin/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
+  "rules": {
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+  },
   "overrides": [{
     "extends": ["plugin:self/recommended"],
     "files": ["*.md"],
-    "parser": "./parser.js"
-  }]
+    "parser": "./parser.js",
+    "rules": {
+      "prettier/prettier": "off"
+    }
+  }],
+  "env": {
+    "jest": true
+  }
 }

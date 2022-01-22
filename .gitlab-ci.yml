@@ -1,0 +1,18 @@
+image: node:latest
+
+stages:
+  - test
+
+before_script:
+  - yarn install --frozen-lockfile
+
+test:
+  stage: test
+  script:
+    - yarn lint
+    - yarn test
+
+cache:
+  paths:
+    - node_modules/
+    - .yarn

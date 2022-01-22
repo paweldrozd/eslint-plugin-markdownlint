@@ -29,18 +29,24 @@
     "parser.js"
   ],
   "private": false,
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "jest"
+  },
   "dependencies": {
-    "espree": "^9.0.0",
-    "markdownlint": "^0.24.0"
+    "markdownlint": "0.25.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-not-an-aardvark": "^2.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-eslint-plugin": "^3.6.1",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-self": "^1.2.1",
+    "jest": "^27.3.1",
     "prettier": "^2.4.1"
   },
   "peerDependencies": {
