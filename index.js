@@ -3,6 +3,6 @@
  * @author Paweł BB Drozd
  */
 
-'use strict';
+"use strict";
 
 module.exports = require("./lib");
