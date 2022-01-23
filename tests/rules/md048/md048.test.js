@@ -23,7 +23,7 @@ const testCaseConsistent = getTestCase(__dirname, [
     style: "consistent",
   },
 ]);
-ruleTester.run("MD048 (style='tilde')", rule, {
+ruleTester.run("MD048 (style='consistent')", rule, {
   valid: [testCaseConsistent.valid("tilde"), testCaseConsistent.valid("backtick")],
   invalid: [
     testCaseConsistent.invalid("mixed", [
