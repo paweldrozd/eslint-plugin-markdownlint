@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-markdownlint",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Eslint plugin for markdownlint",
   "author": "Paweł BB Drozd <dev@pawelbbdrozd.com>",
   "license": "MIT",
