@@ -8,7 +8,7 @@ image: node:latest
 stages:
 - test
 before_script:
-- yarn install --frozen-lockfile
+- yarn install --mode=update-lockfile
 test:
   stage: test
   script:
