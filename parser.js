@@ -5,11 +5,9 @@
 
 "use strict";
 
-const os = require("os");
-
 // eslint-disable-next-line no-unused-vars
 exports.parseForESLint = function (code, options) {
-  const lines = code.split(os.EOL);
+  const lines = code.split(/\r\n?|\n/g);
   const linesCount = lines.length;
   const lastLineLength = lines[linesCount - 1].length;
 
