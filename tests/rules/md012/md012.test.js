@@ -32,6 +32,11 @@ ruleTester.run("MD012 (default)", rule, {
       ["Multiple consecutive blank lines: Expected: 1; Actual: 4"],
       "one"
     ),
+    testCaseDefault.invalid(
+      "too-many-on-end",
+      ["Multiple consecutive blank lines: Expected: 1; Actual: 2"],
+      "one"
+    ),
   ],
 });
 
@@ -59,12 +64,21 @@ ruleTester.run("MD012 (maximum=1)", rule, {
       ["Multiple consecutive blank lines: Expected: 1; Actual: 4"],
       "one"
     ),
+    testCaseOne.invalid(
+      "too-many-on-end",
+      ["Multiple consecutive blank lines: Expected: 1; Actual: 2"],
+      "one"
+    ),
   ],
 });
 
 const testCaseTwo = getTestCase(__dirname, [{ maximum: 2 }]);
 ruleTester.run("MD012 (maximum=2)", rule, {
-  valid: [testCaseTwo.valid("one"), testCaseTwo.valid("two")],
+  valid: [
+    testCaseTwo.valid("one"),
+    testCaseTwo.valid("two"),
+    testCaseTwo.valid("too-many-on-end"),
+  ],
   invalid: [
     testCaseTwo.invalid(
       "three",
@@ -85,6 +99,7 @@ ruleTester.run("MD012 (maximum=3)", rule, {
     testCaseThree.valid("one"),
     testCaseThree.valid("two"),
     testCaseThree.valid("three"),
+    testCaseThree.valid("too-many-on-end"),
   ],
   invalid: [
     testCaseThree.invalid(
