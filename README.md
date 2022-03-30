@@ -30,7 +30,8 @@ and reported as error.
 }
 ```
 
-If you want to modify recommended rules simply add related rule to rules section.
+If you want to modify recommended rules simply add related rule to the rules
+section.
 
 ```json
 {
@@ -52,6 +53,17 @@ If you want to modify recommended rules simply add related rule to rules section
 If you want to configure all settings manually, ommit
 `"extends": ["plugin:markdownlint/recommended"]` (all rules will be set to
 'off'), then enable/configure requested rules in "rules" section.
+
+It's worth to define separate entry in `.editorconfig` if you're using it.
+Following example uses default settings.
+
+```editorconfig
+[*.md]
+max_line_length = 80
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+```
 
 ## Limitations
 
