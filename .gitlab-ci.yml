@@ -9,11 +9,17 @@ stages:
 - test
 before_script:
 - yarn install --mode=update-lockfile
+
 test:
   stage: test
   script:
-  - yarn lint
   - yarn test
+
+lint:
+  stage: test
+  script:
+    - yarn lint
+
 cache:
   paths:
   - node_modules/
