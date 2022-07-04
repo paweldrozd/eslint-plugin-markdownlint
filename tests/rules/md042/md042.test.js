@@ -16,7 +16,7 @@ ruleTester.run("MD042 (default)", rule, {
       "No empty links [Context: [an empty link]()]",
     ]),
     testCaseDefault.invalid("invalid-fragment", [
-      "No empty links [Context: [an empty fragment]()]",
+      "No empty links [Context: [an empty fragment](#)]",
     ]),
   ],
 });

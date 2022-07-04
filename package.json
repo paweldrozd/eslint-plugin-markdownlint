@@ -35,7 +35,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "markdownlint": "0.25.1"
+    "markdownlint": "0.26.0"
   },
   "devDependencies": {
     "eslint": "8.18.0",
