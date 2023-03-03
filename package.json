@@ -38,11 +38,11 @@
     "markdownlint": "0.26.2"
   },
   "devDependencies": {
-    "eslint": "8.31.0",
+    "eslint": "8.35.0",
     "eslint-config-not-an-aardvark": "2.1.0",
     "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-eslint-plugin": "5.0.7",
-    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-eslint-plugin": "5.0.8",
+    "eslint-plugin-import": "2.27.5",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-self": "1.2.1",
