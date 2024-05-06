@@ -1,12 +1,9 @@
 "use strict";
 
 const rule = require("../../../lib/rules/md050");
-const RuleTester = require("eslint").RuleTester;
 const { getTestCase } = require("../../utils");
 
-const ruleTester = new RuleTester({
-  parser: require.resolve("../../../parser"),
-});
+const { ruleTester } = require("../ruleTester");
 
 const testCaseDefault = getTestCase(__dirname);
 ruleTester.run("MD050 (default)", rule, {
@@ -15,8 +12,8 @@ ruleTester.run("MD050 (default)", rule, {
     testCaseDefault.invalid(
       "mixed",
       [
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
@@ -34,8 +31,8 @@ ruleTester.run("MD050 (style='consistent')", rule, {
     testCaseConsistent.invalid(
       "mixed",
       [
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
@@ -53,18 +50,18 @@ ruleTester.run("MD050 (style='asterisk')", rule, {
     testCaseAsterisk.invalid(
       "underscore",
       [
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
     testCaseAsterisk.invalid(
       "mixed",
       [
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
-        "Strong style should be consistent: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
+        "Strong style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),

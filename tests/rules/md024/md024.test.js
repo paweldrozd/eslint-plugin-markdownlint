@@ -1,12 +1,9 @@
 "use strict";
 
 const rule = require("../../../lib/rules/md024");
-const RuleTester = require("eslint").RuleTester;
 const { getTestCase } = require("../../utils");
 
-const ruleTester = new RuleTester({
-  parser: require.resolve("../../../parser"),
-});
+const { ruleTester } = require("../ruleTester");
 
 const testCaseDefault = getTestCase(__dirname);
 ruleTester.run("MD024 (default)", rule, {
@@ -25,80 +22,40 @@ ruleTester.run("MD024 (default)", rule, {
   ],
 });
 
-const testCaseSiblingsFNestingF = getTestCase(__dirname, [
+const testCaseSiblingsF = getTestCase(__dirname, [
   {
     siblings_only: false,
-    allow_different_nesting: false,
   },
 ]);
-ruleTester.run("MD024 (siblings_only=false; allow_different_nesting=false)", rule, {
-  valid: [testCaseSiblingsFNestingF.valid("valid")],
+ruleTester.run("MD024 (siblings_only=false)", rule, {
+  valid: [testCaseSiblingsF.valid("valid")],
   invalid: [
-    testCaseSiblingsFNestingF.invalid("invalid", [
+    testCaseSiblingsF.invalid("invalid", [
       "Multiple headings with the same content [Context: ## Some text]",
       "Multiple headings with the same content [Context: ## Some text]",
     ]),
-    testCaseSiblingsFNestingF.invalid("siblings_only", [
+    testCaseSiblingsF.invalid("siblings_only", [
       "Multiple headings with the same content [Context: ### Features]",
     ]),
-    testCaseSiblingsFNestingF.invalid("different_nesting", [
+    testCaseSiblingsF.invalid("different_nesting", [
       "Multiple headings with the same content [Context: ## Some text]",
     ]),
   ],
 });
 
-const testCaseSiblingsTNestingF = getTestCase(__dirname, [
+const testCaseSiblingsT = getTestCase(__dirname, [
   {
     siblings_only: true,
-    allow_different_nesting: false,
   },
 ]);
-ruleTester.run("MD024 (siblings_only=true; allow_different_nesting=false)", rule, {
+ruleTester.run("MD024 (siblings_only=true)", rule, {
   valid: [
-    testCaseSiblingsTNestingF.valid("valid"),
-    testCaseSiblingsTNestingF.valid("siblings_only"),
-    testCaseSiblingsTNestingF.valid("different_nesting"),
+    testCaseSiblingsT.valid("valid"),
+    testCaseSiblingsT.valid("siblings_only"),
+    testCaseSiblingsT.valid("different_nesting"),
   ],
   invalid: [
-    testCaseSiblingsTNestingF.invalid("invalid", [
-      "Multiple headings with the same content [Context: ## Some text]",
-    ]),
-  ],
-});
-
-const testCaseSiblingsFNestingT = getTestCase(__dirname, [
-  {
-    siblings_only: false,
-    allow_different_nesting: true,
-  },
-]);
-ruleTester.run("MD024 (siblings_only=false; allow_different_nesting=true)", rule, {
-  valid: [
-    testCaseSiblingsFNestingT.valid("valid"),
-    testCaseSiblingsFNestingT.valid("siblings_only"),
-    testCaseSiblingsFNestingT.valid("different_nesting"),
-  ],
-  invalid: [
-    testCaseSiblingsFNestingT.invalid("invalid", [
-      "Multiple headings with the same content [Context: ## Some text]",
-    ]),
-  ],
-});
-
-const testCaseSiblingsTNestingT = getTestCase(__dirname, [
-  {
-    siblings_only: true,
-    allow_different_nesting: true,
-  },
-]);
-ruleTester.run("MD024 (siblings_only=true; allow_different_nesting=true)", rule, {
-  valid: [
-    testCaseSiblingsTNestingT.valid("valid"),
-    testCaseSiblingsTNestingT.valid("siblings_only"),
-    testCaseSiblingsTNestingT.valid("different_nesting"),
-  ],
-  invalid: [
-    testCaseSiblingsTNestingT.invalid("invalid", [
+    testCaseSiblingsT.invalid("invalid", [
       "Multiple headings with the same content [Context: ## Some text]",
     ]),
   ],

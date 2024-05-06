@@ -1,12 +1,9 @@
 "use strict";
 
 const rule = require("../../../lib/rules/md037");
-const RuleTester = require("eslint").RuleTester;
 const { getTestCase } = require("../../utils");
 
-const ruleTester = new RuleTester({
-  parser: require.resolve("../../../parser"),
-});
+const { ruleTester } = require("../ruleTester");
 
 const testCaseDefault = getTestCase(__dirname);
 ruleTester.run("MD037 (default)", rule, {
@@ -15,10 +12,14 @@ ruleTester.run("MD037 (default)", rule, {
     testCaseDefault.invalid(
       "invalid",
       [
-        "Spaces inside emphasis markers [Context: ** bold **]",
-        "Spaces inside emphasis markers [Context: * italic *]",
-        "Spaces inside emphasis markers [Context: __ bold __]",
-        "Spaces inside emphasis markers [Context: _ italic _]",
+        "Spaces inside emphasis markers [Context: ** b]",
+        "Spaces inside emphasis markers [Context: d **]",
+        "Spaces inside emphasis markers [Context: * i]",
+        "Spaces inside emphasis markers [Context: c *]",
+        "Spaces inside emphasis markers [Context: __ b]",
+        "Spaces inside emphasis markers [Context: d __]",
+        "Spaces inside emphasis markers [Context: _ i]",
+        "Spaces inside emphasis markers [Context: c _]",
       ],
       "valid"
     ),

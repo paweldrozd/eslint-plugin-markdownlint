@@ -1,12 +1,9 @@
 "use strict";
 
 const rule = require("../../../lib/rules/md010");
-const RuleTester = require("eslint").RuleTester;
 const { getTestCase } = require("../../utils");
 
-const ruleTester = new RuleTester({
-  parser: require.resolve("../../../parser"),
-});
+const { ruleTester } = require("../ruleTester");
 
 const testCaseDefault = getTestCase(__dirname);
 ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=1)", rule, {

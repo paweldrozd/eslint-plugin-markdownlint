@@ -1,12 +1,9 @@
 "use strict";
 
 const rule = require("../../../lib/rules/md049");
-const RuleTester = require("eslint").RuleTester;
 const { getTestCase } = require("../../utils");
 
-const ruleTester = new RuleTester({
-  parser: require.resolve("../../../parser"),
-});
+const { ruleTester } = require("../ruleTester");
 
 const testCaseDefault = getTestCase(__dirname);
 ruleTester.run("MD049 (default)", rule, {
@@ -15,8 +12,8 @@ ruleTester.run("MD049 (default)", rule, {
     testCaseDefault.invalid(
       "mixed",
       [
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
@@ -34,8 +31,8 @@ ruleTester.run("MD049 (style='consistent')", rule, {
     testCaseConsistent.invalid(
       "mixed",
       [
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
@@ -53,45 +50,49 @@ ruleTester.run("MD049 (style='asterisk')", rule, {
     testCaseAsterisk.invalid(
       "underscore",
       [
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
     testCaseAsterisk.invalid(
       "mixed",
       [
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-        "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
+        "Emphasis style: Expected: asterisk; Actual: underscore",
       ],
       "asterisk"
     ),
   ],
 });
 
-// TODO: check on next iteration
-// const testCaseUnderscore = getTestCase(__dirname, [
-//   {
-//     style: "underscore",
-//   },
-// ]);
-// Possible bug in style underscore.
-// ruleTester.run("MD049 (style='underscore')", rule, {
-//   valid: [testCaseUnderscore.valid("underscore")],
-//   invalid: [
-//     testCaseUnderscore.invalid(
-//       "asterisk",
-//       [
-//         "Emphasis style should be consistent: Expected: asterisk; Actual: underscore",
-//       ],
-//       "underscore"
-//     ),
-//     testCaseUnderscore.invalid(
-//       "mixed",
-//       ["Emphasis style should be consistent: Expected: underscore; Actual: asterisk"],
-//       "underscore"
-//     ),
-//   ],
-// });
+const testCaseUnderscore = getTestCase(__dirname, [
+  {
+    style: "underscore",
+  },
+]);
+ruleTester.run("MD049 (style='underscore')", rule, {
+  valid: [testCaseUnderscore.valid("underscore")],
+  invalid: [
+    testCaseUnderscore.invalid(
+      "asterisk",
+      [
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+      ],
+      "underscore"
+    ),
+    testCaseUnderscore.invalid(
+      "mixed",
+      [
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+        "Emphasis style: Expected: underscore; Actual: asterisk",
+      ],
+      "underscore"
+    ),
+  ],
+});
