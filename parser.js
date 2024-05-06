@@ -30,3 +30,7 @@ exports.parseForESLint = function (code, options) {
     visitorKeys: null,
   };
 };
+
+exports.meta = {
+  name: "markdownlint-parser",
+};
