@@ -1,4 +1,4 @@
-const nodePlugin = require("eslint-plugin-node");
+const nodePlugin = require("eslint-plugin-n");
 const prettierPlugin = require("eslint-plugin-prettier");
 const selfPlugin = require("eslint-plugin-self");
 const eslintJs = require("@eslint/js");
@@ -16,6 +16,7 @@ module.exports = [
     languageOptions: {
       globals: {
         ...globals.node,
+        ...globals.jest,
       },
     },
     rules: {
