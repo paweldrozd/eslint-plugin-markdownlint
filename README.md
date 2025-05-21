@@ -13,6 +13,31 @@ npm install eslint-plugin-markdownlint --save-dev
 
 ## Usage
 
+### Flat configs
+
+```js
+import markdownlintPlugin from "eslint-plugin-markdownlint";
+import markdownlintParser from "eslint-plugin-markdownlint/parser";
+
+export default [
+    // other configs,
+  {
+    files: ['**/*md'],
+    plugins: {
+      'markdownlint': markdownlintPlugin
+    },
+    languageOptions: {
+      parser: markdownlintParser
+    },
+    rules: {
+      ...markdownlintPlugin.configs.recommended.rules
+    }
+  }
+]
+```
+
+### Legacy `.eslintrc`
+
 In order to use this plugin there is required to put it into override section
 of `.eslintrc` file with defined files array (select markdown files), parser and
 rules.
