@@ -1,10 +1,10 @@
-const nodePlugin = require("eslint-plugin-n");
-const prettierPlugin = require("eslint-plugin-prettier");
-const selfPlugin = require("eslint-plugin-self");
-const eslintJs = require("@eslint/js");
-const globals = require("globals");
+import nodePlugin from "eslint-plugin-n";
+import prettierPlugin from "eslint-plugin-prettier";
+import selfPlugin from "eslint-plugin-self";
+import eslintJs from "@eslint/js";
+import globals from "globals";
 
-module.exports = [
+export default [
   eslintJs.configs.recommended,
   {
     plugins: {

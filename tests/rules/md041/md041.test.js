@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md041.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md041");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md041");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD041 (default)", rule, {
   valid: [
     testCaseDefault.valid("valid"),
@@ -25,7 +25,7 @@ ruleTester.run("MD041 (default)", rule, {
   ],
 });
 
-const testCaseLevel1FMDefault = getTestCase(__dirname, [
+const testCaseLevel1FMDefault = getTestCase(dirName, [
   {
     level: 1,
     front_matter_title: '^\\s*"?title"?\\s*[:=]',
@@ -50,7 +50,7 @@ ruleTester.run("MD041 (level=1, front_matter_title='<default>')", rule, {
   ],
 });
 
-const testCaseLevel1FMDisabled = getTestCase(__dirname, [
+const testCaseLevel1FMDisabled = getTestCase(dirName, [
   {
     level: 1,
     front_matter_title: "",
@@ -77,7 +77,7 @@ ruleTester.run("MD041 (level=1, front_matter_title='')", rule, {
   ],
 });
 
-const testCaseLevel2FMDefault = getTestCase(__dirname, [
+const testCaseLevel2FMDefault = getTestCase(dirName, [
   {
     level: 2,
     front_matter_title: '^\\s*"?title"?\\s*[:=]',

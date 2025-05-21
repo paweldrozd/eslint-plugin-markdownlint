@@ -4,14 +4,14 @@
  * fully valid.
  */
 
-"use strict";
+import rule from "../../../lib/rules/md009.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md009");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md009");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD009 (default)", rule, {
   valid: [
     testCaseDefault.valid("br2-emptyf-strictf"),
@@ -69,7 +69,7 @@ ruleTester.run("MD009 (default)", rule, {
   ],
 });
 
-const testCaseBr2 = getTestCase(__dirname, [
+const testCaseBr2 = getTestCase(dirName, [
   { br_spaces: 2, list_item_empty_lines: false, strict: false },
 ]);
 ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=false, strict=false)", rule, {
@@ -129,7 +129,7 @@ ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=false, strict=false)",
   ],
 });
 
-const testCaseBr3 = getTestCase(__dirname, [
+const testCaseBr3 = getTestCase(dirName, [
   { br_spaces: 3, list_item_empty_lines: false, strict: false },
 ]);
 ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=false, strict=false)", rule, {
@@ -183,7 +183,7 @@ ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=false, strict=false)",
   ],
 });
 
-const testCaseBr2Lines = getTestCase(__dirname, [
+const testCaseBr2Lines = getTestCase(dirName, [
   { br_spaces: 2, list_item_empty_lines: true, strict: false },
 ]);
 ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=true, strict=false)", rule, {
@@ -218,7 +218,7 @@ ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=true, strict=false)", 
   ],
 });
 
-const testCaseBr3Lines = getTestCase(__dirname, [
+const testCaseBr3Lines = getTestCase(dirName, [
   { br_spaces: 3, list_item_empty_lines: true, strict: false },
 ]);
 ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=true, strict=false)", rule, {
@@ -253,7 +253,7 @@ ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=true, strict=false)", 
   ],
 });
 
-const testCaseBr2LineStrict = getTestCase(__dirname, [
+const testCaseBr2LineStrict = getTestCase(dirName, [
   { br_spaces: 2, list_item_empty_lines: true, strict: true },
 ]);
 ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=true, strict=true)", rule, {
@@ -295,7 +295,7 @@ ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=true, strict=true)", r
   ],
 });
 
-const testCaseBr3LineStrict = getTestCase(__dirname, [
+const testCaseBr3LineStrict = getTestCase(dirName, [
   { br_spaces: 3, list_item_empty_lines: true, strict: true },
 ]);
 ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=true, strict=true)", rule, {
@@ -335,7 +335,7 @@ ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=true, strict=true)", r
   ],
 });
 
-const testCaseBr2Strict = getTestCase(__dirname, [
+const testCaseBr2Strict = getTestCase(dirName, [
   { br_spaces: 2, list_item_empty_lines: false, strict: true },
 ]);
 ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=false, strict=true)", rule, {
@@ -409,7 +409,7 @@ ruleTester.run("MD009 (br_spaces=2, list_item_empty_lines=false, strict=true)", 
   ],
 });
 
-const testCaseBr3Strict = getTestCase(__dirname, [
+const testCaseBr3Strict = getTestCase(dirName, [
   { br_spaces: 3, list_item_empty_lines: false, strict: true },
 ]);
 ruleTester.run("MD009 (br_spaces=3, list_item_empty_lines=false, strict=true)", rule, {

@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md007.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md007");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md007");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD007 (default)", rule, {
   valid: [testCaseDefault.valid("indent2")],
   invalid: [
@@ -56,7 +56,7 @@ ruleTester.run("MD007 (default)", rule, {
   ],
 });
 
-const testCaseIndent2 = getTestCase(__dirname, [{ indent: 2, start_indented: false }]);
+const testCaseIndent2 = getTestCase(dirName, [{ indent: 2, start_indented: false }]);
 ruleTester.run("MD007 (indent=2, start_indented=false)", rule, {
   valid: [testCaseIndent2.valid("indent2")],
   invalid: [
@@ -107,7 +107,7 @@ ruleTester.run("MD007 (indent=2, start_indented=false)", rule, {
   ],
 });
 
-const testCaseIndent2Start = getTestCase(__dirname, [
+const testCaseIndent2Start = getTestCase(dirName, [
   { indent: 2, start_indented: true },
 ]);
 ruleTester.run("MD007 (indent=2, start_indented=true)", rule, {
@@ -160,7 +160,7 @@ ruleTester.run("MD007 (indent=2, start_indented=true)", rule, {
   ],
 });
 
-const testCaseIndent3 = getTestCase(__dirname, [{ indent: 3, start_indented: false }]);
+const testCaseIndent3 = getTestCase(dirName, [{ indent: 3, start_indented: false }]);
 ruleTester.run("MD007 (indent=3, start_indented=false)", rule, {
   valid: [testCaseIndent3.valid("indent3")],
   invalid: [
@@ -209,7 +209,7 @@ ruleTester.run("MD007 (indent=3, start_indented=false)", rule, {
   ],
 });
 
-const testCaseIndent3Start = getTestCase(__dirname, [
+const testCaseIndent3Start = getTestCase(dirName, [
   { indent: 3, start_indented: true },
 ]);
 ruleTester.run("MD007 (indent=3, start_indented=true)", rule, {

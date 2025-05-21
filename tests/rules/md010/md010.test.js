@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md010.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md010");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md010");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=1)", rule, {
   valid: [
     testCaseDefault.valid("block-spaces1"),
@@ -48,7 +48,7 @@ ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=1)", rule, {
   ],
 });
 
-const testCaseBlocksSpaces1 = getTestCase(__dirname, [
+const testCaseBlocksSpaces1 = getTestCase(dirName, [
   { code_blocks: true, spaces_per_tab: 1 },
 ]);
 ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=1)", rule, {
@@ -93,7 +93,7 @@ ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=1)", rule, {
   ],
 });
 
-const testCaseBlocksSpaces2 = getTestCase(__dirname, [
+const testCaseBlocksSpaces2 = getTestCase(dirName, [
   { code_blocks: true, spaces_per_tab: 2 },
 ]);
 ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=2)", rule, {
@@ -138,7 +138,7 @@ ruleTester.run("MD010 (code_blocks=true,spaces_per_tab=2)", rule, {
   ],
 });
 
-const testCaseSpaces1 = getTestCase(__dirname, [
+const testCaseSpaces1 = getTestCase(dirName, [
   { code_blocks: false, spaces_per_tab: 1 },
 ]);
 ruleTester.run("MD010 (code_blocks=false,spaces_per_tab=1)", rule, {
@@ -151,7 +151,7 @@ ruleTester.run("MD010 (code_blocks=false,spaces_per_tab=1)", rule, {
   invalid: [testCaseSpaces1.invalid("invalid", ["Hard tabs: Column: 5"], "spaces1")],
 });
 
-const testCaseSpaces2 = getTestCase(__dirname, [
+const testCaseSpaces2 = getTestCase(dirName, [
   { code_blocks: false, spaces_per_tab: 2 },
 ]);
 ruleTester.run("MD010 (code_blocks=false,spaces_per_tab=2)", rule, {

@@ -1,10 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md001.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md001");
-const { getTestCase } = require("../../utils");
-const { ruleTester } = require("../ruleTester");
+const dirName = path.resolve("./tests/rules/md001");
 
-const testCase = getTestCase(__dirname);
+const testCase = getTestCase(dirName);
 ruleTester.run("MD001", rule, {
   valid: [
     testCase.valid("tree"),

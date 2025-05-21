@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md029.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md029");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md029");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD029 (default)", rule, {
   valid: [testCaseDefault.valid("ordered"), testCaseDefault.valid("one")],
   invalid: [
@@ -19,7 +19,7 @@ ruleTester.run("MD029 (default)", rule, {
   ],
 });
 
-const testCaseStyleOne = getTestCase(__dirname, [{ style: "one" }]);
+const testCaseStyleOne = getTestCase(dirName, [{ style: "one" }]);
 ruleTester.run("MD029 (style=one)", rule, {
   valid: [testCaseStyleOne.valid("one")],
   invalid: [
@@ -38,7 +38,7 @@ ruleTester.run("MD029 (style=one)", rule, {
   ],
 });
 
-const testCaseStyleOrdered = getTestCase(__dirname, [{ style: "ordered" }]);
+const testCaseStyleOrdered = getTestCase(dirName, [{ style: "ordered" }]);
 ruleTester.run("MD029 (style=ordered)", rule, {
   valid: [testCaseStyleOrdered.valid("ordered")],
   invalid: [
@@ -53,7 +53,7 @@ ruleTester.run("MD029 (style=ordered)", rule, {
   ],
 });
 
-const testCaseStyleOneOrOrdered = getTestCase(__dirname, [{ style: "one_or_ordered" }]);
+const testCaseStyleOneOrOrdered = getTestCase(dirName, [{ style: "one_or_ordered" }]);
 ruleTester.run("MD029 (style=one_or_ordered)", rule, {
   valid: [
     testCaseStyleOneOrOrdered.valid("ordered"),
@@ -70,7 +70,7 @@ ruleTester.run("MD029 (style=one_or_ordered)", rule, {
   ],
 });
 
-const testCaseStyleZero = getTestCase(__dirname, [{ style: "zero" }]);
+const testCaseStyleZero = getTestCase(dirName, [{ style: "zero" }]);
 ruleTester.run("MD029 (style=zero)", rule, {
   valid: [testCaseStyleZero.valid("zero")],
   invalid: [

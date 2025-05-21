@@ -1,13 +1,13 @@
-"use strict";
+import rule from "../../../lib/rules/md043.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md043");
-const { getTestCase } = require("../../utils");
-
-const { ruleTester } = require("../ruleTester");
+const dirName = path.resolve("./tests/rules/md043");
 
 // By default, this rule is disabled
 
-const testCaseNoOptional = getTestCase(__dirname, [
+const testCaseNoOptional = getTestCase(dirName, [
   {
     headings: ["# Head", "## Item", "### Detail"],
   },
@@ -21,7 +21,7 @@ ruleTester.run("MD043 (no-optional)", rule, {
   ],
 });
 
-const testCaseOptional = getTestCase(__dirname, [
+const testCaseOptional = getTestCase(dirName, [
   {
     headings: ["# Head", "## Item", "*", "## Foot", "*"],
   },

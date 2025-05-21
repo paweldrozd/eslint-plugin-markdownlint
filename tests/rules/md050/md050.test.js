@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md050.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md050");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md050");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD050 (default)", rule, {
   valid: [testCaseDefault.valid("asterisk"), testCaseDefault.valid("underscore")],
   invalid: [
@@ -20,7 +20,7 @@ ruleTester.run("MD050 (default)", rule, {
   ],
 });
 
-const testCaseConsistent = getTestCase(__dirname, [
+const testCaseConsistent = getTestCase(dirName, [
   {
     style: "consistent",
   },
@@ -39,7 +39,7 @@ ruleTester.run("MD050 (style='consistent')", rule, {
   ],
 });
 
-const testCaseAsterisk = getTestCase(__dirname, [
+const testCaseAsterisk = getTestCase(dirName, [
   {
     style: "asterisk",
   },
@@ -69,7 +69,7 @@ ruleTester.run("MD050 (style='asterisk')", rule, {
 });
 
 // TODO: check on next iteration
-// const testCaseUnderscore = getTestCase(__dirname, [
+// const testCaseUnderscore = getTestCase(dirName, [
 //   {
 //     style: "underscore",
 //   },

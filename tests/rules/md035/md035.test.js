@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md035.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md035");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md035");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD035 (default)", rule, {
   valid: [testCaseDefault.valid("dashes"), testCaseDefault.valid("stars")],
   invalid: [
@@ -15,7 +15,7 @@ ruleTester.run("MD035 (default)", rule, {
   ],
 });
 
-const testCaseConsistent = getTestCase(__dirname, [{ style: "consistent" }]);
+const testCaseConsistent = getTestCase(dirName, [{ style: "consistent" }]);
 ruleTester.run("MD035 (style='consistent')", rule, {
   valid: [testCaseConsistent.valid("dashes"), testCaseConsistent.valid("stars")],
   invalid: [
@@ -25,7 +25,7 @@ ruleTester.run("MD035 (style='consistent')", rule, {
   ],
 });
 
-const testCaseDashes = getTestCase(__dirname, [{ style: "---" }]);
+const testCaseDashes = getTestCase(dirName, [{ style: "---" }]);
 ruleTester.run("MD035 (style='---')", rule, {
   valid: [testCaseDashes.valid("dashes")],
   invalid: [
@@ -40,7 +40,7 @@ ruleTester.run("MD035 (style='---')", rule, {
   ],
 });
 
-const testCaseStars = getTestCase(__dirname, [{ style: "***" }]);
+const testCaseStars = getTestCase(dirName, [{ style: "***" }]);
 ruleTester.run("MD035 (style='***')", rule, {
   valid: [testCaseStars.valid("stars")],
   invalid: [

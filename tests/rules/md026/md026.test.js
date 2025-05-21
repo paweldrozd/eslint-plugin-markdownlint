@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md026.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md026");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md026");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD026 (default)", rule, {
   valid: [testCaseDefault.valid("valid"), testCaseDefault.valid("dash")],
   invalid: [
@@ -17,7 +17,7 @@ ruleTester.run("MD026 (default)", rule, {
   ],
 });
 
-const testCasePunctuationDefault = getTestCase(__dirname, [
+const testCasePunctuationDefault = getTestCase(dirName, [
   {
     punctuation: ".,;:!。，；：！",
   },
@@ -36,7 +36,7 @@ ruleTester.run("MD026 (punctuation=default-chars)", rule, {
   ],
 });
 
-const testCasePunctuationCustom = getTestCase(__dirname, [
+const testCasePunctuationCustom = getTestCase(dirName, [
   {
     punctuation: "-",
   },

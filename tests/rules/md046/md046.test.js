@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md046.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md046");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md046");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD046 (default)", rule, {
   valid: [testCaseDefault.valid("indented"), testCaseDefault.valid("fenced")],
   invalid: [
@@ -15,7 +15,7 @@ ruleTester.run("MD046 (default)", rule, {
   ],
 });
 
-const testCaseConsistent = getTestCase(__dirname, [
+const testCaseConsistent = getTestCase(dirName, [
   {
     style: "consistent",
   },
@@ -29,7 +29,7 @@ ruleTester.run("MD046 (style='indented')", rule, {
   ],
 });
 
-const testCaseFenced = getTestCase(__dirname, [
+const testCaseFenced = getTestCase(dirName, [
   {
     style: "fenced",
   },
@@ -47,7 +47,7 @@ ruleTester.run("MD046 (style='fenced')", rule, {
   ],
 });
 
-const testCaseIndented = getTestCase(__dirname, [
+const testCaseIndented = getTestCase(dirName, [
   {
     style: "indented",
   },

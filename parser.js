@@ -3,10 +3,8 @@
  * @author Paweł BB Drozd
  */
 
-"use strict";
-
 // eslint-disable-next-line no-unused-vars
-exports.parseForESLint = function (code, options) {
+function parseForESLint(code, options) {
   const lines = code.split(/\r\n?|\n/g);
   const linesCount = lines.length;
   const lastLineLength = lines[linesCount - 1].length;
@@ -29,8 +27,11 @@ exports.parseForESLint = function (code, options) {
     scopeManager: null,
     visitorKeys: null,
   };
-};
+}
 
-exports.meta = {
-  name: "markdownlint-parser",
+export default {
+  parseForESLint,
+  meta: {
+    name: "markdownlint-parser",
+  },
 };

@@ -1,10 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md004.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md004");
-const { getTestCase } = require("../../utils");
-const { ruleTester } = require("../ruleTester");
+const dirName = path.resolve("./tests/rules/md004");
 
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD004 (default)", rule, {
   valid: [
     testCaseDefault.valid("asterisk"),
@@ -62,7 +63,7 @@ ruleTester.run("MD004 (default)", rule, {
   ],
 });
 
-const testCaseAsterisk = getTestCase(__dirname, [{ style: "asterisk" }]);
+const testCaseAsterisk = getTestCase(dirName, [{ style: "asterisk" }]);
 ruleTester.run("MD004 (style=asterisk)", rule, {
   valid: [testCaseAsterisk.valid("asterisk")],
   invalid: [
@@ -163,7 +164,7 @@ ruleTester.run("MD004 (style=asterisk)", rule, {
   ],
 });
 
-const testCaseDash = getTestCase(__dirname, [{ style: "dash" }]);
+const testCaseDash = getTestCase(dirName, [{ style: "dash" }]);
 ruleTester.run("MD004 (style=dash)", rule, {
   valid: [testCaseDash.valid("dash")],
   invalid: [
@@ -263,7 +264,7 @@ ruleTester.run("MD004 (style=dash)", rule, {
   ],
 });
 
-const testCasePlus = getTestCase(__dirname, [{ style: "plus" }]);
+const testCasePlus = getTestCase(dirName, [{ style: "plus" }]);
 ruleTester.run("MD004 (style=plus)", rule, {
   valid: [testCasePlus.valid("plus")],
   invalid: [
@@ -369,7 +370,7 @@ ruleTester.run("MD004 (style=plus)", rule, {
   ],
 });
 
-const testCaseSublist = getTestCase(__dirname, [{ style: "sublist" }]);
+const testCaseSublist = getTestCase(dirName, [{ style: "sublist" }]);
 ruleTester.run("MD004 (style=sublist)", rule, {
   valid: [testCaseSublist.valid("sublist")],
   invalid: [
