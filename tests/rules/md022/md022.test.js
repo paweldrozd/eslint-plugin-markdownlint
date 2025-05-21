@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md022.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md022");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md022");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD022 (default)", rule, {
   valid: [
     testCaseDefault.valid("above-1-below-1"),
@@ -25,7 +25,7 @@ ruleTester.run("MD022 (default)", rule, {
   ],
 });
 
-const testCaseAbove1Below1 = getTestCase(__dirname, [
+const testCaseAbove1Below1 = getTestCase(dirName, [
   {
     lines_above: 1,
     lines_below: 1,
@@ -50,7 +50,7 @@ ruleTester.run("MD022 (lines_above=1; lines_below=1)", rule, {
   ],
 });
 
-const testCaseAbove2Below1 = getTestCase(__dirname, [
+const testCaseAbove2Below1 = getTestCase(dirName, [
   {
     lines_above: 2,
     lines_below: 1,
@@ -88,7 +88,7 @@ ruleTester.run("MD022 (lines_above=2; lines_below=1)", rule, {
   ],
 });
 
-const testCaseAbove1Below2 = getTestCase(__dirname, [
+const testCaseAbove1Below2 = getTestCase(dirName, [
   {
     lines_above: 1,
     lines_below: 2,
@@ -126,7 +126,7 @@ ruleTester.run("MD022 (lines_above=1; lines_below=2)", rule, {
   ],
 });
 
-const testCaseAbove2Below2 = getTestCase(__dirname, [
+const testCaseAbove2Below2 = getTestCase(dirName, [
   {
     lines_above: 2,
     lines_below: 2,

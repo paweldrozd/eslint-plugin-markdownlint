@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md020.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md020");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md020");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD020 (default)", rule, {
   valid: [testCaseDefault.valid("atx-closed-with-space")],
   invalid: [

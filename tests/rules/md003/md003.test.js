@@ -1,10 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md003.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md003");
-const { getTestCase } = require("../../utils");
-const { ruleTester } = require("../ruleTester");
+const dirName = path.resolve("./tests/rules/md003");
 
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD003 (default)", rule, {
   valid: [
     testCaseDefault.valid("atx"),
@@ -35,7 +36,7 @@ ruleTester.run("MD003 (default)", rule, {
   ],
 });
 
-const testCaseAtx = getTestCase(__dirname, [{ style: "atx" }]);
+const testCaseAtx = getTestCase(dirName, [{ style: "atx" }]);
 ruleTester.run("MD003 (style=atx)", rule, {
   valid: [testCaseAtx.valid("atx")],
   invalid: [
@@ -74,7 +75,7 @@ ruleTester.run("MD003 (style=atx)", rule, {
   ],
 });
 
-const testCaseAtxClosed = getTestCase(__dirname, [{ style: "atx_closed" }]);
+const testCaseAtxClosed = getTestCase(dirName, [{ style: "atx_closed" }]);
 ruleTester.run("MD003 (style=atx_closed)", rule, {
   valid: [testCaseAtxClosed.valid("atx-closed")],
   invalid: [
@@ -116,7 +117,7 @@ ruleTester.run("MD003 (style=atx_closed)", rule, {
   ],
 });
 
-const testCaseConsistent = getTestCase(__dirname, [{ style: "consistent" }]);
+const testCaseConsistent = getTestCase(dirName, [{ style: "consistent" }]);
 ruleTester.run("MD003 (style=consistent)", rule, {
   valid: [
     testCaseConsistent.valid("atx"),
@@ -147,7 +148,7 @@ ruleTester.run("MD003 (style=consistent)", rule, {
   ],
 });
 
-const testCaseSetext = getTestCase(__dirname, [{ style: "setext" }]);
+const testCaseSetext = getTestCase(dirName, [{ style: "setext" }]);
 ruleTester.run("MD003 (style=setext)", rule, {
   valid: [testCaseSetext.valid("setext")],
   invalid: [
@@ -185,7 +186,7 @@ ruleTester.run("MD003 (style=setext)", rule, {
   ],
 });
 
-const testCaseSetextWithAtx = getTestCase(__dirname, [{ style: "setext_with_atx" }]);
+const testCaseSetextWithAtx = getTestCase(dirName, [{ style: "setext_with_atx" }]);
 ruleTester.run("MD003 (style=setext_with_atx)", rule, {
   valid: [
     testCaseSetextWithAtx.valid("setext"),
@@ -220,7 +221,7 @@ ruleTester.run("MD003 (style=setext_with_atx)", rule, {
   ],
 });
 
-const testCaseSetextWithAtxClosed = getTestCase(__dirname, [
+const testCaseSetextWithAtxClosed = getTestCase(dirName, [
   { style: "setext_with_atx_closed" },
 ]);
 ruleTester.run("MD003 (style=setext_with_atx_closed)", rule, {

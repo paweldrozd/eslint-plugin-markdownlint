@@ -1,4 +1,4 @@
-const { rules } = require("../lib");
+import { rules } from "../lib/index.js";
 
 test.each(Object.keys(rules))(
   'rule "%s" has a fixable property of "code" or "whitespace"',

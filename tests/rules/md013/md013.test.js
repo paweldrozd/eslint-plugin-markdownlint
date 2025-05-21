@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md013.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md013");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md013");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD013 (default)", rule, {
   valid: [
     testCaseDefault.valid("80-80-80-tttff"),
@@ -22,7 +22,7 @@ ruleTester.run("MD013 (default)", rule, {
   ],
 });
 
-const testCase808080tttff = getTestCase(__dirname, [
+const testCase808080tttff = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -54,7 +54,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080ttttt = getTestCase(__dirname, [
+const testCase808080ttttt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -87,7 +87,7 @@ ruleTester.run(
   }
 );
 
-const testCase788080ttttt = getTestCase(__dirname, [
+const testCase788080ttttt = getTestCase(dirName, [
   {
     line_length: 78,
     heading_line_length: 80,
@@ -137,7 +137,7 @@ ruleTester.run(
   }
 );
 
-const testCase807880ttttt = getTestCase(__dirname, [
+const testCase807880ttttt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 78,
@@ -173,7 +173,7 @@ ruleTester.run(
   }
 );
 
-const testCase808078ttttt = getTestCase(__dirname, [
+const testCase808078ttttt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -209,7 +209,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080ftttt = getTestCase(__dirname, [
+const testCase808080ftttt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -244,7 +244,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080tfttt = getTestCase(__dirname, [
+const testCase808080tfttt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -280,7 +280,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080ttftt = getTestCase(__dirname, [
+const testCase808080ttftt = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -315,7 +315,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080tttft = getTestCase(__dirname, [
+const testCase808080tttft = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,
@@ -349,7 +349,7 @@ ruleTester.run(
   }
 );
 
-const testCase808080ttttf = getTestCase(__dirname, [
+const testCase808080ttttf = getTestCase(dirName, [
   {
     line_length: 80,
     heading_line_length: 80,

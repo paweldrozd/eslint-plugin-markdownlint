@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md012.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md012");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md012");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD012 (default)", rule, {
   valid: [testCaseDefault.valid("one")],
   invalid: [
@@ -37,7 +37,7 @@ ruleTester.run("MD012 (default)", rule, {
   ],
 });
 
-const testCaseOne = getTestCase(__dirname, [{ maximum: 1 }]);
+const testCaseOne = getTestCase(dirName, [{ maximum: 1 }]);
 ruleTester.run("MD012 (maximum=1)", rule, {
   valid: [testCaseOne.valid("one")],
   invalid: [
@@ -69,7 +69,7 @@ ruleTester.run("MD012 (maximum=1)", rule, {
   ],
 });
 
-const testCaseTwo = getTestCase(__dirname, [{ maximum: 2 }]);
+const testCaseTwo = getTestCase(dirName, [{ maximum: 2 }]);
 ruleTester.run("MD012 (maximum=2)", rule, {
   valid: [
     testCaseTwo.valid("one"),
@@ -90,7 +90,7 @@ ruleTester.run("MD012 (maximum=2)", rule, {
   ],
 });
 
-const testCaseThree = getTestCase(__dirname, [{ maximum: 3 }]);
+const testCaseThree = getTestCase(dirName, [{ maximum: 3 }]);
 ruleTester.run("MD012 (maximum=3)", rule, {
   valid: [
     testCaseThree.valid("one"),

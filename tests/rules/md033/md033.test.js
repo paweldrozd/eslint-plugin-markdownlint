@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md033.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md033");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md033");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD033 (default)", rule, {
   valid: [testCaseDefault.valid("without-html")],
   invalid: [
@@ -14,7 +14,7 @@ ruleTester.run("MD033 (default)", rule, {
   ],
 });
 
-const testCaseNoAllowedElements = getTestCase(__dirname, [{ allowed_elements: [] }]);
+const testCaseNoAllowedElements = getTestCase(dirName, [{ allowed_elements: [] }]);
 ruleTester.run("MD033 (allowed_elements=[])", rule, {
   valid: [testCaseNoAllowedElements.valid("without-html")],
   invalid: [
@@ -23,7 +23,7 @@ ruleTester.run("MD033 (allowed_elements=[])", rule, {
   ],
 });
 
-const testCaseAllowedH1 = getTestCase(__dirname, [{ allowed_elements: ["h1"] }]);
+const testCaseAllowedH1 = getTestCase(dirName, [{ allowed_elements: ["h1"] }]);
 ruleTester.run("MD033 (allowed_elements=['h1'])", rule, {
   valid: [
     testCaseAllowedH1.valid("without-html"),

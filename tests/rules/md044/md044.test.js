@@ -1,13 +1,13 @@
-"use strict";
+import rule from "../../../lib/rules/md044.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md044");
-const { getTestCase } = require("../../utils");
-
-const { ruleTester } = require("../ruleTester");
+const dirName = path.resolve("./tests/rules/md044");
 
 // By default, this rule is disabled
 
-const testCaseJavaScript = getTestCase(__dirname, [
+const testCaseJavaScript = getTestCase(dirName, [
   {
     names: ["JavaScript"],
     code_blocks: true,
@@ -34,7 +34,7 @@ ruleTester.run("MD044 (names=['JavaScript'], code_blocks=true)", rule, {
   ],
 });
 
-const testCaseJavaScriptWithoutCb = getTestCase(__dirname, [
+const testCaseJavaScriptWithoutCb = getTestCase(dirName, [
   {
     names: ["JavaScript"],
     code_blocks: false,

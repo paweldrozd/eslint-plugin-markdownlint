@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md031.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md031");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md031");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD031 (default)", rule, {
   valid: [testCaseDefault.valid("valid")],
   invalid: [
@@ -26,7 +26,7 @@ ruleTester.run("MD031 (default)", rule, {
   ],
 });
 
-const testCaseListItemTrue = getTestCase(__dirname, [
+const testCaseListItemTrue = getTestCase(dirName, [
   {
     list_items: true,
   },
@@ -51,7 +51,7 @@ ruleTester.run("MD031 (list_items=true)", rule, {
   ],
 });
 
-const testCaseListItemFalse = getTestCase(__dirname, [
+const testCaseListItemFalse = getTestCase(dirName, [
   {
     list_items: false,
   },

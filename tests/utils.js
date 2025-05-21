@@ -1,7 +1,5 @@
-"use strict";
-
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
 
 const getMdFilename = (ref, name) => {
   return path.join(ref, "files", name + ".md");
@@ -33,8 +31,10 @@ const invalid = (ref, name, errors, output, options = []) => {
   return obj;
 };
 
-module.exports.getTestCase = (ref, options = []) => ({
-  valid: (name) => valid(ref, name, options),
-  invalid: (name, errors, output = undefined) =>
-    invalid(ref, name, errors, output, options),
-});
+export function getTestCase(ref, options = []) {
+  return {
+    valid: (name) => valid(ref, name, options),
+    invalid: (name, errors, output = undefined) =>
+      invalid(ref, name, errors, output, options),
+  };
+}

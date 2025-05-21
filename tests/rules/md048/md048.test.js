@@ -1,11 +1,11 @@
-"use strict";
+import rule from "../../../lib/rules/md048.js";
+import { getTestCase } from "../../utils.js";
+import { ruleTester } from "../ruleTester.js";
+import path from "path";
 
-const rule = require("../../../lib/rules/md048");
-const { getTestCase } = require("../../utils");
+const dirName = path.resolve("./tests/rules/md048");
 
-const { ruleTester } = require("../ruleTester");
-
-const testCaseDefault = getTestCase(__dirname);
+const testCaseDefault = getTestCase(dirName);
 ruleTester.run("MD048 (default)", rule, {
   valid: [testCaseDefault.valid("tilde"), testCaseDefault.valid("backtick")],
   invalid: [
@@ -15,7 +15,7 @@ ruleTester.run("MD048 (default)", rule, {
   ],
 });
 
-const testCaseConsistent = getTestCase(__dirname, [
+const testCaseConsistent = getTestCase(dirName, [
   {
     style: "consistent",
   },
@@ -29,7 +29,7 @@ ruleTester.run("MD048 (style='consistent')", rule, {
   ],
 });
 
-const testCaseTilde = getTestCase(__dirname, [
+const testCaseTilde = getTestCase(dirName, [
   {
     style: "tilde",
   },
@@ -46,7 +46,7 @@ ruleTester.run("MD048 (style='tilde')", rule, {
   ],
 });
 
-const testCaseBacktick = getTestCase(__dirname, [
+const testCaseBacktick = getTestCase(dirName, [
   {
     style: "backtick",
   },
