@@ -17,7 +17,7 @@ npm install eslint-plugin-markdownlint --save-dev
 
 ```js
 import markdownlintPlugin from "eslint-plugin-markdownlint";
-import markdownlintParser from "eslint-plugin-markdownlint/parser";
+import markdownlintParser from "eslint-plugin-markdownlint/parser.js";
 
 export default [
     // other configs,
