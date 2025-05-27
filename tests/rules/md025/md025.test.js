@@ -10,10 +10,10 @@ ruleTester.run("MD025 (level=1; front_matter_title=default-regex)", rule, {
   valid: [testCaseDefault.valid("valid"), testCaseDefault.valid("front_matter_valid")],
   invalid: [
     testCaseDefault.invalid("invalid_h1", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
     testCaseDefault.invalid("front_matter_invalid", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
   ],
 });
@@ -31,10 +31,10 @@ ruleTester.run("MD025 (level=1; front_matter_title=default-regex)", rule, {
   ],
   invalid: [
     testCaseLevel1FmDefault.invalid("invalid_h1", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
     testCaseLevel1FmDefault.invalid("front_matter_invalid", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
   ],
 });
@@ -52,10 +52,10 @@ ruleTester.run("MD025 (level=2; front_matter_title=default-regex)", rule, {
   ],
   invalid: [
     testCaseLevel2FmDefault.invalid("invalid_h2", [
-      "Multiple top-level headings in the same document [Context: ## First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
     testCaseLevel2FmDefault.invalid("front_matter_valid", [
-      "Multiple top-level headings in the same document [Context: ## First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
   ],
 });
@@ -74,10 +74,10 @@ ruleTester.run("MD025 (level=1; front_matter_title=custom-regex)", rule, {
   ],
   invalid: [
     testCaseLevel1FmCustom.invalid("invalid_h1", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
     testCaseLevel1FmCustom.invalid("front_matter_custom", [
-      "Multiple top-level headings in the same document [Context: # First chapter]",
+      "Multiple top-level headings in the same document [Context: First chapter]",
     ]),
   ],
 });

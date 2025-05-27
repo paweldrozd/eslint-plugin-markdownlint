@@ -13,6 +13,7 @@ ruleTester.run("MD021 (default)", rule, {
       "atx-closed-with-many-spaces",
       [
         "Multiple spaces inside hashes on closed atx style heading [Context: #  Heading 1  #]",
+        "Multiple spaces inside hashes on closed atx style heading [Context: #  Heading 1  #]",
         "Multiple spaces inside hashes on closed atx style heading [Context: ##    Heading 2 ##]",
       ],
       "atx-closed-with-space"

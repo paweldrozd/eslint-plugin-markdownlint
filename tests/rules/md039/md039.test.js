@@ -11,7 +11,10 @@ ruleTester.run("MD039 (default)", rule, {
   invalid: [
     testCaseDefault.invalid(
       "invalid",
-      ["Spaces inside link text [Context: [ a link ]]"],
+      [
+        "Spaces inside link text [Context: [ a link ]]",
+        "Spaces inside link text [Context: [ a link ]]",
+      ],
       "valid"
     ),
   ],

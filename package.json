@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-markdownlint",
-  "version": "0.6.0",
+  "version": "0.8.0-alpha.2",
   "description": "Eslint plugin for markdownlint",
   "author": "Paweł BB Drozd <dev@pawelbbdrozd.com>",
   "license": "MIT",
@@ -26,6 +26,7 @@
   "main": "index.js",
   "files": [
     "lib/**/*.js",
+    "lib/**/*.mjs",
     "parser.js"
   ],
   "private": false,
@@ -35,7 +36,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "markdownlint": "0.34.0"
+    "markdownlint": "0.37.0",
+    "synckit": "^0.11.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
