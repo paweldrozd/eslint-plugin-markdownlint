@@ -34,6 +34,11 @@ ruleTester.run("MD012 (default)", rule, {
       ["Multiple consecutive blank lines: Expected: 1; Actual: 2"],
       "one"
     ),
+    testCaseDefault.invalid(
+      "three-on-end",
+      ["Multiple consecutive blank lines: Expected: 1; Actual: 4"],
+      "one-no-trailing"
+    ),
   ],
 });
 
