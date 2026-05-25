@@ -8,8 +8,8 @@ image: node:latest
 stages:
 - test
 before_script:
-- corepack enable
-- yarn install --immutable
+- npm install -g yarn
+- yarn install --frozen-lockfile
 
 test:
   stage: test
