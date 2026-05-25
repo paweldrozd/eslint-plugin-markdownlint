@@ -12,7 +12,7 @@ ruleTester.run("MD029 (default)", rule, {
     testCaseDefault.invalid(
       "invalid",
       ["Ordered list item prefix: Expected: 2; Actual: 3; Style: 1/2/3"],
-      "invalid-fixed-ordered",
+      "invalid-fixed-ordered"
     ),
     testCaseDefault.invalid(
       "zero",
@@ -20,7 +20,7 @@ ruleTester.run("MD029 (default)", rule, {
         "Ordered list item prefix: Expected: 1; Actual: 0; Style: 1/2/3",
         "Ordered list item prefix: Expected: 2; Actual: 0; Style: 1/2/3",
       ],
-      "zero-fixed-ordered",
+      "zero-fixed-ordered"
     ),
   ],
 });
@@ -35,7 +35,7 @@ ruleTester.run("MD029 (style=one)", rule, {
         "Ordered list item prefix: Expected: 1; Actual: 2; Style: 1/1/1",
         "Ordered list item prefix: Expected: 1; Actual: 3; Style: 1/1/1",
       ],
-      "ordered-fixed-one",
+      "ordered-fixed-one"
     ),
     testCaseStyleOne.invalid(
       "zero",
@@ -44,12 +44,12 @@ ruleTester.run("MD029 (style=one)", rule, {
         "Ordered list item prefix: Expected: 1; Actual: 0; Style: 1/1/1",
         "Ordered list item prefix: Expected: 1; Actual: 0; Style: 1/1/1",
       ],
-      "zero-fixed-one",
+      "zero-fixed-one"
     ),
     testCaseStyleOne.invalid(
       "invalid",
       ["Ordered list item prefix: Expected: 1; Actual: 3; Style: 1/1/1"],
-      "invalid-fixed-one",
+      "invalid-fixed-one"
     ),
   ],
 });
@@ -64,7 +64,7 @@ ruleTester.run("MD029 (style=ordered)", rule, {
         "Ordered list item prefix: Expected: 2; Actual: 1; Style: 1/2/3",
         "Ordered list item prefix: Expected: 3; Actual: 1; Style: 1/2/3",
       ],
-      "one-fixed-ordered",
+      "one-fixed-ordered"
     ),
     testCaseStyleOrdered.invalid(
       "zero",
@@ -72,7 +72,7 @@ ruleTester.run("MD029 (style=ordered)", rule, {
         "Ordered list item prefix: Expected: 1; Actual: 0; Style: 1/2/3",
         "Ordered list item prefix: Expected: 2; Actual: 0; Style: 1/2/3",
       ],
-      "zero-fixed-ordered",
+      "zero-fixed-ordered"
     ),
   ],
 });
@@ -87,7 +87,7 @@ ruleTester.run("MD029 (style=one_or_ordered)", rule, {
     testCaseStyleOneOrOrdered.invalid(
       "invalid",
       ["Ordered list item prefix: Expected: 2; Actual: 3; Style: 1/2/3"],
-      "invalid-fixed-ordered",
+      "invalid-fixed-ordered"
     ),
     testCaseStyleOneOrOrdered.invalid(
       "zero",
@@ -95,7 +95,7 @@ ruleTester.run("MD029 (style=one_or_ordered)", rule, {
         "Ordered list item prefix: Expected: 1; Actual: 0; Style: 1/2/3",
         "Ordered list item prefix: Expected: 2; Actual: 0; Style: 1/2/3",
       ],
-      "zero-fixed-ordered",
+      "zero-fixed-ordered"
     ),
   ],
 });
@@ -111,7 +111,7 @@ ruleTester.run("MD029 (style=zero)", rule, {
         "Ordered list item prefix: Expected: 0; Actual: 1; Style: 0/0/0",
         "Ordered list item prefix: Expected: 0; Actual: 1; Style: 0/0/0",
       ],
-      "one-fixed-zero",
+      "one-fixed-zero"
     ),
     testCaseStyleZero.invalid(
       "ordered",
@@ -120,7 +120,7 @@ ruleTester.run("MD029 (style=zero)", rule, {
         "Ordered list item prefix: Expected: 0; Actual: 2; Style: 0/0/0",
         "Ordered list item prefix: Expected: 0; Actual: 3; Style: 0/0/0",
       ],
-      "one-fixed-zero",
+      "one-fixed-zero"
     ),
     testCaseStyleZero.invalid(
       "invalid",
@@ -128,7 +128,7 @@ ruleTester.run("MD029 (style=zero)", rule, {
         "Ordered list item prefix: Expected: 0; Actual: 1; Style: 0/0/0",
         "Ordered list item prefix: Expected: 0; Actual: 3; Style: 0/0/0",
       ],
-      "invalid-fixed-zero",
+      "invalid-fixed-zero"
     ),
   ],
 });
