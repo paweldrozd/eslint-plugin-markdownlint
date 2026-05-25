@@ -38,6 +38,7 @@
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest ."
   },
   "dependencies": {
+    "json5": "^2.2.3",
     "markdownlint": "0.40.0"
   },
   "devDependencies": {
