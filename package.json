@@ -23,6 +23,7 @@
   "bugs": {
     "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/issues"
   },
+  "type": "module",
   "main": "index.js",
   "files": [
     "lib/**/*.js",
@@ -35,18 +36,18 @@
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest ."
   },
   "dependencies": {
-    "markdownlint": "0.38.0"
+    "markdownlint": "0.40.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.2.0",
-    "eslint": "9.26.0",
-    "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-n": "14.0.0",
-    "eslint-plugin-prettier": "5.4.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "10.4.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-n": "18.0.1",
+    "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-self": "1.2.1",
-    "globals": "^16.0.0",
+    "globals": "^17.6.0",
     "jest": "29.7.0",
-    "prettier": "3.5.3"
+    "prettier": "3.8.3"
   },
   "peerDependencies": {
     "eslint": ">=7.5.0"
