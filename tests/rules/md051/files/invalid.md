@@ -1,0 +1,3 @@
+# Heading
+
+[link](#bad-fragment)
