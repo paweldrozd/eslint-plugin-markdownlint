@@ -8,7 +8,8 @@ image: node:latest
 stages:
 - test
 before_script:
-- yarn install --mode=update-lockfile
+- corepack enable
+- yarn install --immutable
 
 test:
   stage: test
