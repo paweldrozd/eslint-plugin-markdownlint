@@ -25,11 +25,28 @@
   },
   "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./parser": {
+      "types": "./parser.d.ts",
+      "default": "./parser.js"
+    },
+    "./parser.js": {
+      "types": "./parser.d.ts",
+      "default": "./parser.js"
+    }
+  },
   "types": "index.d.ts",
   "files": [
-    "lib/**/*.js",
+    "index.js",
     "index.d.ts",
-    "parser.js"
+    "parser.js",
+    "parser.d.ts",
+    "lib/**/*.js",
+    "lib/**/*.mjs"
   ],
   "private": false,
   "scripts": {
@@ -57,7 +74,7 @@
     "eslint": ">=7.5.0"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
