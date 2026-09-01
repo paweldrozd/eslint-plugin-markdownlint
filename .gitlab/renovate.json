@@ -1,6 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "gitlab>turdidae/codestyle/renovate:base"
+  "extends": ["config:recommended"],
+  "labels": ["dependencies"],
+  "assignees": ["pawelbbdrozd"],
+  "packageRules": [
+    {
+      "groupName": "jest",
+      "matchPackageNames": ["/jest/", "/ts-jest/", "/@types/jest/"]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackageNames": ["/^eslint/", "!eslint-config-next"]
+    }
   ]
 }
