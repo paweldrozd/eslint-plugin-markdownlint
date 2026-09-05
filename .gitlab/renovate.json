@@ -5,12 +5,30 @@
   "assignees": ["pawelbbdrozd"],
   "packageRules": [
     {
-      "groupName": "jest",
-      "matchPackageNames": ["/jest/", "/ts-jest/", "/@types/jest/"]
+      "groupName": "lint-and-format",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/js",
+        "eslint-config-prettier",
+        "eslint-plugin-n",
+        "eslint-plugin-prettier",
+        "eslint-plugin-self",
+        "globals",
+        "prettier"
+      ]
     },
     {
-      "groupName": "eslint",
-      "matchPackageNames": ["/^eslint/", "!eslint-config-next"]
+      "groupName": "test",
+      "matchPackageNames": ["/jest/", "/@types\\/jest/"]
+    },
+    {
+      "groupName": "typescript",
+      "matchPackageNames": ["typescript"]
+    },
+    {
+      "groupName": "runtime-dependencies",
+      "matchDepTypes": ["dependencies"],
+      "automerge": false
     }
   ]
 }
