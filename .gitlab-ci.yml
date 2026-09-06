@@ -31,6 +31,7 @@ publish:npm:
   id_tokens:
     NPM_ID_TOKEN:
       aud: "npm:registry.npmjs.org"
+  before_script: []
   script:
     - npm stage publish
 
@@ -57,9 +58,11 @@ include:
 # These jobs inherit the top-level before_script by default, but their
 # analyzer images have no npm/yarn. semgrep-sast, secret_detection and
 # releaser-pleaser have no before_script of their own, so an empty override
-# is safe. The Trivy component's before_script creates artifacts/trivy/ and
-# placeholder report files required by its script - that must be preserved,
-# just without the npm/yarn install steps.
+# is safe. publish:npm uses node:24, which ships yarn preinstalled, so
+# `npm install -g yarn` fails with EEXIST. The Trivy component's
+# before_script creates artifacts/trivy/ and placeholder report files
+# required by its script - that must be preserved, just without the
+# npm/yarn install steps.
 trivy:scan:filesystem:
   before_script:
   - set -eu
