@@ -3,6 +3,9 @@
   "extends": ["config:recommended"],
   "labels": ["dependencies"],
   "assignees": ["pawelbbdrozd"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "groupName": "lint-and-format",
