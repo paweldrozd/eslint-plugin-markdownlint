@@ -50,13 +50,16 @@ include:
     token: $RELEASER_PLEASER_TOKEN
     stage: release
     updaters: "packagejson"
+    needs:
+    - test
+    - lint
 
 # These jobs inherit the top-level before_script by default, but their
-# analyzer images have no npm/yarn. semgrep-sast and secret_detection have no
-# before_script of their own, so an empty override is safe. The Trivy
-# component's before_script creates artifacts/trivy/ and placeholder report
-# files required by its script - that must be preserved, just without the
-# npm/yarn install steps.
+# analyzer images have no npm/yarn. semgrep-sast, secret_detection and
+# releaser-pleaser have no before_script of their own, so an empty override
+# is safe. The Trivy component's before_script creates artifacts/trivy/ and
+# placeholder report files required by its script - that must be preserved,
+# just without the npm/yarn install steps.
 trivy:scan:filesystem:
   before_script:
   - set -eu
@@ -67,4 +70,7 @@ semgrep-sast:
   before_script: []
 
 secret_detection:
+  before_script: []
+
+releaser-pleaser:
   before_script: []
