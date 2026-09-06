@@ -26,4 +26,12 @@ cache:
   - node_modules/
   - ".yarn"
 include:
-- template: Security/Dependency-Scanning.gitlab-ci.yml
+- component: $CI_SERVER_FQDN/niclas-zone/ci/trivy/target_filesystem@2.5.2
+  inputs:
+    TRIVY_FS_PATH: "."
+    TRIVY_SCANNERS: "vuln"
+
+# The component's job inherits the top-level before_script by default, but
+# the Trivy image has no npm/yarn - override it to keep the job self-contained.
+trivy:scan:filesystem:
+  before_script: []
