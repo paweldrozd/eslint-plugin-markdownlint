@@ -30,8 +30,16 @@ include:
   inputs:
     TRIVY_FS_PATH: "."
     TRIVY_SCANNERS: "vuln"
+- template: Jobs/SAST.gitlab-ci.yml
+- template: Jobs/Secret-Detection.gitlab-ci.yml
 
-# The component's job inherits the top-level before_script by default, but
-# the Trivy image has no npm/yarn - override it to keep the job self-contained.
+# These jobs inherit the top-level before_script by default, but their
+# analyzer images have no npm/yarn - override it to keep them self-contained.
 trivy:scan:filesystem:
+  before_script: []
+
+semgrep-sast:
+  before_script: []
+
+secret_detection:
   before_script: []
