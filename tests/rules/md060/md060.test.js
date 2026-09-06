@@ -9,8 +9,12 @@ const testCaseCompact = getTestCase(dirName, [{ style: "compact" }]);
 ruleTester.run("MD060 (style=compact)", rule, {
   valid: [testCaseCompact.valid("valid")],
   invalid: [
-    testCaseCompact.invalid("invalid", [
-      'Table column style: Table pipe has extra space to the left for style "compact"',
-    ]),
+    testCaseCompact.invalid(
+      "invalid",
+      [
+        'Table column style: Table pipe has extra space to the left for style "compact"',
+      ],
+      "invalid-fixed"
+    ),
   ],
 });
