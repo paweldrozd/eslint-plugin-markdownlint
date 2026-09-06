@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.0](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/releases/v1.0.0)
+
+[Compare to previous version](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/compare/v0.10.1...v1.0.0)
+
+### Features
+
+- **BREAKING**: declare stable v1.0.0 API ([b26fe0d](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/commit/b26fe0d5007728e81da5d279a80d8aa136521070))
+
+### Bug Fixes
+
+- **BREAKING**: **deps**: update dependency markdownlint to v0.41.1 ([d41d458](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/commit/d41d4588b324c04752a156c0c781187528dd073c))
+
 ## [v0.10.1](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/releases/v0.10.1)
 
 [Compare to previous version](https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/compare/v0.10.0...v0.10.1)
