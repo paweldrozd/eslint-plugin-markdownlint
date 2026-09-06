@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "json5": "^2.2.3",
-    "markdownlint": "0.40.0"
+    "markdownlint": "0.41.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
