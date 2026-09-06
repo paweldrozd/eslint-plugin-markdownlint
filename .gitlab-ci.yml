@@ -7,6 +7,8 @@
 image: node:latest
 stages:
 - test
+- release
+- publish
 before_script:
 - npm install -g yarn
 - yarn install --frozen-lockfile
@@ -21,6 +23,17 @@ lint:
   script:
     - yarn lint
 
+publish:npm:
+  stage: publish
+  image: node:24
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  id_tokens:
+    NPM_ID_TOKEN:
+      aud: "npm:registry.npmjs.org"
+  script:
+    - npm stage publish
+
 cache:
   paths:
   - node_modules/
@@ -32,6 +45,11 @@ include:
     TRIVY_SCANNERS: "vuln"
 - template: Jobs/SAST.gitlab-ci.yml
 - template: Jobs/Secret-Detection.gitlab-ci.yml
+- component: $CI_SERVER_FQDN/apricote/releaser-pleaser/run@v0.9.0
+  inputs:
+    token: $RELEASER_PLEASER_TOKEN
+    stage: release
+    updaters: "packagejson"
 
 # These jobs inherit the top-level before_script by default, but their
 # analyzer images have no npm/yarn. semgrep-sast and secret_detection have no
