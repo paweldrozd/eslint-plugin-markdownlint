@@ -34,9 +34,16 @@ include:
 - template: Jobs/Secret-Detection.gitlab-ci.yml
 
 # These jobs inherit the top-level before_script by default, but their
-# analyzer images have no npm/yarn - override it to keep them self-contained.
+# analyzer images have no npm/yarn. semgrep-sast and secret_detection have no
+# before_script of their own, so an empty override is safe. The Trivy
+# component's before_script creates artifacts/trivy/ and placeholder report
+# files required by its script - that must be preserved, just without the
+# npm/yarn install steps.
 trivy:scan:filesystem:
-  before_script: []
+  before_script:
+  - set -eu
+  - mkdir -p artifacts/trivy
+  - touch gl-container-scanning-report.json artifacts/trivy/junit-placeholder.xml
 
 semgrep-sast:
   before_script: []
